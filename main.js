@@ -6,7 +6,7 @@ let commandInput = process.argv;
 // get the numbers since the first two arguments are not required we slice them
 let numbers = commandInput.slice(2, commandInput.length); 
 
-// Converts a number to its phonetic equivalent
+// Converts a number to phonetic equivalent
 function convertNumberToWord(num)
 {
 
@@ -28,7 +28,7 @@ function convertNumberToWord(num)
     // Array to hold the phonetic euivalents of all the digits
     let phoneticEquals = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
 
-    if(num == 0)
+    if(num === 0)
     {
         result = phoneticEquals[num];
     }
@@ -49,15 +49,18 @@ function convertNumberToWord(num)
     return result;
 }
 
-// Converts all the numbers in an array into a string
+// Converts all the numbers in an array to string
 function convertArrayToWords(numbers)
 {
     let result = "";
     // Loop through the numbers
     for(let index = 0; index < numbers.length; index++)
     {
-        // Convert each number to phonetic equivalent
-        result += convertNumberToWord(numbers[index]);
+        // Converts the string to an int
+        let num = parseInt(numbers[index]);
+
+        // Convert each number to phonetic equivalent and adds it to the string
+        result += convertNumberToWord(num);
 
         // If we have not reached the last element we add a comma
         if(index != numbers.length - 1)
